@@ -1,7 +1,11 @@
+import { BackgroundLines } from "@/components/ui/background-lines";
+
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className=" flex items-center justify-center h-screen">
-      <main>{children}</main>
+    <div className=" h-screen">
+      <BackgroundLines className="bg-black flex items-center justify-center">
+        <main>{children}</main>
+      </BackgroundLines>
     </div>
   );
 };
