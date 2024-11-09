@@ -4,11 +4,23 @@ import React from "react";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import tick from "@/assets/tick.svg";
+import Image from "next/image";
 
 const Step = ({ title }: { title: string }) => {
   return (
-    <li className="flex gap-2 items-start">
+    <li className="flex gap-2 items-start ">
       <CheckIcon />
+      <p className="text-white">{title}</p>
+    </li>
+  );
+};
+
+const StepPricing = ({ title }: { title: string }) => {
+  return (
+    <li className="flex gap-2 items-center">
+      <Image src={tick} alt="tick" className="w-4 block" />
       <p className="text-white">{title}</p>
     </li>
   );
@@ -185,10 +197,63 @@ const MarketingPage = () => {
         </div>
       </div>
 
-      <div className="pricing_component ">
-        <h1 className="font-semibold bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-800 bg-clip-text text-transparent">
-          Pricing for you to JAM
+      <div className="pricing_component bg-gradient-to-t from-black via-black via-70% to-[#faa0af] p-14">
+        <h1 className="font-semibold bg-gradient-to-r from-[#4A4A4A] via-[white] to-blue-500 bg-clip-text text-transparent text-6xl text-center p-6 uppercase font-sans">
+          Pricing For You To JAM
         </h1>
+
+        <div className="pricing_info flex items-center w-full justify-center gap-10 font-sans">
+          <HoverBorderGradient className="rounded-lg p-6 text-left min-w-[400px]">
+            <p className="text-2xl font-bold text-white">Starter</p>
+            <p className="text-4xl font-bold text-white mt-2">FREE</p>
+            <p>Hell Yeh</p>
+            <p className="text-white mt-2">Perfect for trying out JAM</p>
+
+            <ul className="mt-4 space-y-2">
+              <StepPricing title="2 Free Credits" />
+              <StepPricing title="Join Public Rooms" />
+              <StepPricing title="Limited Public Room Creation" />
+            </ul>
+
+            <button className="mt-6 w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-full font-semibold">
+              Get Started
+            </button>
+          </HoverBorderGradient>
+
+          <HoverBorderGradient className="rounded-lg p-6 text-left min-w-[400px]">
+            <p className="text-2xl font-bold text-white">Priority Music</p>
+            <p className="text-4xl font-bold text-white mt-2">$1</p>
+            <p className="text-white mt-2">Per Priority Play</p>
+            <p className="text-white mt-2">Get your music played first</p>
+
+            <ul className="mt-4 space-y-2">
+              <StepPricing title="High Priority in Queue" />
+              <StepPricing title="Stand Out in Rooms" />
+              <StepPricing title="Support the Community" />
+            </ul>
+
+            <button className="mt-6 w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-full font-semibold">
+              Boost Your Track
+            </button>
+          </HoverBorderGradient>
+
+          <HoverBorderGradient className="rounded-lg p-6 text-left min-w-[400px]">
+            <p className="text-2xl font-bold text-white">Pro</p>
+            <p className="text-4xl font-bold text-white mt-2">$5</p>
+            <p className="text-white mt-2">Per Month</p>
+            <p className="text-white mt-2">Unlock full potential of JAM</p>
+
+            <ul className="mt-4 space-y-2">
+              <StepPricing title="Create Private Rooms" />
+              <StepPricing title="Unlimited Public Rooms" />
+              <StepPricing title="Priority Support" />
+            </ul>
+
+            <button className="mt-6 w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-3 rounded-full font-semibold">
+              Upgrade Now
+            </button>
+          </HoverBorderGradient>
+        </div>
       </div>
     </div>
   );

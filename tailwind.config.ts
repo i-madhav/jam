@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily:{
+        sans: ['var(--font-poppins)', 'sans-serif']
+      },
       backgroundImage:{
         'black-to-spotify': 'linear-gradient(to bottom, black 50%, #1DB954 50%)',
       },
