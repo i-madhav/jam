@@ -105,79 +105,90 @@ const MarketingPage = () => {
           </div>
         </h1>
       </BackgroundBeamsWithCollision>
-      <div className="bg-gradient-to-b from-[#FFC0CB]/30 via-[#c1b0fc]/20 to-[#e296d5]/10 bg-black text-white p-10 flex items-center justify-center">
-        <div className="flex items-center p-4 gap-5">
-          <BackgroundGradient>
-            <CardSpotlight className=" p-5 flex flex-col justify-between">
-              <p className="text-xl font-bold relative z-20 mt-2 text-white">
-                Your Jam Experience - 5 Free Credits!
-              </p>
-              <div className="text-neutral-200 mt-4 relative z-20">
-                Start exploring *Jam* with **5 free credits**! Each credit
-                allows you to create a private or public music room, perfect for
-                connecting with friends or meeting new people through shared
-                music experiences.
-                <ul className="list-none mt-2">
-                  <Step title="Create or Join a Room" />
-                  <Step title="Paste the link of the song be played inside the room" />
-                  <Step title="Engage and Connect" />
-                </ul>
-              </div>
-              <p className="text-neutral-300 mt-4 relative z-20 text-sm">
-                After using your 5 free credits, you can continue creating new
-                rooms for just **$2 per room**. Enjoy limitless music,
-                meaningful connections, and an ever-growing community of music
-                lovers.
-              </p>
-            </CardSpotlight>
-          </BackgroundGradient>
+      <div className="bg-gradient-to-b from-[#FFC0CB]/30 via-[#c1b0fc]/20 to-[#e296d5]/10 bg-black text-white p-14 ">
+        <h1 className="text-xl md:text-6xl font-bold bg-gradient-to-b from-[#FFC0CB] via-[#c1b0fc] to-[#e296d5] text-transparent bg-clip-text w-full text-center mb-6 pt-20">
+          Experience Music Like Never Before with Jam!
+        </h1>
+        <div className="flex items-center justify-center">
+          <div className="flex items-center p-4 gap-5">
+            <BackgroundGradient>
+              <CardSpotlight className=" p-5 flex flex-col justify-between">
+                <p className="text-xl font-bold relative z-20 mt-2 text-white">
+                  Your Jam Experience - 5 Free Credits!
+                </p>
+                <div className="text-neutral-200 mt-4 relative z-20">
+                  Start exploring *Jam* with **5 free credits**! Each credit
+                  allows you to create a private or public music room, perfect
+                  for connecting with friends or meeting new people through
+                  shared music experiences.
+                  <ul className="list-none mt-2">
+                    <Step title="Create or Join a Room" />
+                    <Step title="Paste the link of the song be played inside the room" />
+                    <Step title="Engage and Connect" />
+                  </ul>
+                </div>
+                <p className="text-neutral-300 mt-4 relative z-20 text-sm">
+                  After using your 5 free credits, you can continue creating new
+                  rooms for just **$2 per room**. Enjoy limitless music,
+                  meaningful connections, and an ever-growing community of music
+                  lovers.
+                </p>
+              </CardSpotlight>
+            </BackgroundGradient>
 
-          <BackgroundGradient>
-            <CardSpotlight className=" p-5 flex flex-col justify-between">
-              <p className="text-xl font-bold relative z-20 mt-2 text-white">
-                Discover Public Rooms
-              </p>
-              <div className="text-neutral-200 mt-4 relative z-20">
-                Join public rooms on *Jam* to experience music with thousands of
-                other listeners. Each room has a unique vibe, allowing you to
-                find the perfect soundtrack for any mood.
-                <ul className="list-none mt-2">
-                  <Step title="Browse Trending Rooms" />
-                  <Step title="Listen and Interact" />
-                  <Step title="Meet Like-Minded Listeners" />
-                </ul>
-              </div>
-              <p className="text-neutral-300 mt-4 relative z-20 text-sm">
-                Public rooms are a great way to expand your musical horizons and
-                become part of an energetic community. Join a room today and see
-                where the music takes you!
-              </p>
-            </CardSpotlight>
-          </BackgroundGradient>
+            <BackgroundGradient>
+              <CardSpotlight className=" p-5 flex flex-col justify-between">
+                <p className="text-xl font-bold relative z-20 mt-2 text-white">
+                  Discover Public Rooms
+                </p>
+                <div className="text-neutral-200 mt-4 relative z-20">
+                  Join public rooms on *Jam* to experience music with thousands
+                  of other listeners. Each room has a unique vibe, allowing you
+                  to find the perfect soundtrack for any mood.
+                  <ul className="list-none mt-2">
+                    <Step title="Browse Trending Rooms" />
+                    <Step title="Listen and Interact" />
+                    <Step title="Meet Like-Minded Listeners" />
+                  </ul>
+                </div>
+                <p className="text-neutral-300 mt-4 relative z-20 text-sm">
+                  Public rooms are a great way to expand your musical horizons
+                  and become part of an energetic community. Join a room today
+                  and see where the music takes you!
+                </p>
+              </CardSpotlight>
+            </BackgroundGradient>
 
-          <BackgroundGradient>
-            <CardSpotlight className=" p-5 flex flex-col justify-between">
-              <p className="text-xl font-bold relative z-20 mt-2 text-white">
-                Create Your Private Room
-              </p>
-              <div className="text-neutral-200 mt-4 relative z-20">
-                Share the music you love with the people who matter most. Create
-                a private room on *Jam* and invite your friends, family, or
-                someone special to experience music together.
-                <ul className="list-none mt-2">
-                  <Step title="Start a Private Room" />
-                  <Step title="Customize Your Playlist" />
-                  <Step title="Chat and React in Real-Time" />
-                </ul>
-              </div>
-              <p className="text-neutral-300 mt-4 relative z-20 text-sm">
-                Private rooms let you create intimate, memorable music sessions
-                with those closest to you. Start your first private room on
-                *Jam* today!
-              </p>
-            </CardSpotlight>
-          </BackgroundGradient>
+            <BackgroundGradient>
+              <CardSpotlight className=" p-5 flex flex-col justify-between">
+                <p className="text-xl font-bold relative z-20 mt-2 text-white">
+                  Create Your Private Room
+                </p>
+                <div className="text-neutral-200 mt-4 relative z-20">
+                  Share the music you love with the people who matter most.
+                  Create a private room on *Jam* and invite your friends,
+                  family, or someone special to experience music together.
+                  <ul className="list-none mt-2">
+                    <Step title="Start a Private Room" />
+                    <Step title="Customize Your Playlist" />
+                    <Step title="Chat and React in Real-Time" />
+                  </ul>
+                </div>
+                <p className="text-neutral-300 mt-4 relative z-20 text-sm">
+                  Private rooms let you create intimate, memorable music
+                  sessions with those closest to you. Start your first private
+                  room on *Jam* today!
+                </p>
+              </CardSpotlight>
+            </BackgroundGradient>
+          </div>
         </div>
+      </div>
+
+      <div className="pricing_component ">
+        <h1 className="font-semibold bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-800 bg-clip-text text-transparent">
+          Pricing for you to JAM
+        </h1>
       </div>
     </div>
   );
