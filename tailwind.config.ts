@@ -33,6 +33,10 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          600:'rgb(124 58 237)',
+          700:'rgb(109, 40, 217)',
+          500:'rgb(139 92 246)',
+          '500/10': 'rgb(139 92 246 / 0.1)'
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -77,6 +81,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        gradient: 'gradient 8s linear infinite',
       },
     },
   },
