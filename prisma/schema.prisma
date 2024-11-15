@@ -13,7 +13,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id Int @id @default(autoincrement())
-  email String
+model User {
+  id        Int      @id @default(autoincrement())
+  clerkId   String   @unique
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Room {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  isPrivate   Boolean @default(false)
+  Music       Music[]
+}
+
+model Music {
+  id     Int    @id @default(autoincrement())
+  url    String
+  roomId Int
+  order Int @default(0)
+  room   Room   @relation(fields: [roomId], references: [id])
 }
