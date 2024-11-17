@@ -1,5 +1,12 @@
 "use client";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { SignOutButton } from "@clerk/nextjs";
 import React from "react";
 
 const page = () => {
@@ -14,7 +21,22 @@ const page = () => {
             Create or join a room to start listening with friends
           </p>
         </div>
-        <div className=" rounded-full h-14 w-14 bg-primary-600 text-white font-bold font-sans flex items-center justify-center">M</div>
+        <div className=" rounded-full h-14 w-14 text-white font-bold font-sans flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="bg-primary-600 text-white rounded-full font-medium w-10 h-10 flex items-center justify-center">
+              M
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-white bg-opacity-70 backdrop-blur-lg rounded-lg shadow-xl mr-7">
+              <DropdownMenuItem className="focus:bg-gray-200 focus:bg-opacity-70">
+                <SignOutButton redirectUrl="/">
+                  <button className=" bg-red-400 p-3 font-semibold rounded-lg w-full">
+                    Sign-Out
+                  </button>
+                </SignOutButton>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
 
       <div className=" grid grid-cols-2 gap-14 items-center justify-center mx-auto p-6 w-fit">
@@ -57,7 +79,7 @@ const page = () => {
                       placeholder="Enter room name"
                       className="w-full bg-dark border border-zinc-800 rounded-lg px-4 py-2 text-black placeholder-zinc-500 focus:outline-none focus:border-[#1DB954] transition-colors"
                     />
-                     <input
+                    <input
                       type="text"
                       placeholder="Room description(optional)"
                       className="w-full mt-3 bg-dark border border-zinc-800 rounded-lg px-4 py-2 text-black placeholder-zinc-500 focus:outline-none focus:border-[#1DB954] transition-colors"
@@ -149,7 +171,9 @@ const page = () => {
                 </div>
 
                 <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
-                  <span className=" font-bold font-sans">Create Public Room</span>
+                  <span className=" font-bold font-sans">
+                    Create Public Room
+                  </span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -342,16 +366,18 @@ const page = () => {
                 </button>
 
                 <div className="mt-4 flex items-center gap-2 text-zinc-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-                </svg>
-                <span className="text-sm">Anyone can join and Browse Room</span>
-              </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                  </svg>
+                  <span className="text-sm">
+                    Anyone can join and Browse Room
+                  </span>
+                </div>
               </div>
             </div>
           </div>
