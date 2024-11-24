@@ -1,7 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import FunkyLoader from "./FunkyLoaders";
 
 const PublicRoomCard = () => {
+  const [roomName, setRoomName] = useState("");
+  const [roomDescription, setRoomDescription] = useState("");
+  const [loader, setLoader] = useState(false);
+  const { user } = useUser();
+  const router = useRouter();
+
+  async function handlePrivateRoomCreation() {
+    try {
+      setLoader(true);
+      const response = await fetch("/api/create-room", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: roomName,
+          description: roomDescription,
+          isPrivate: true,
+          owner: user?.id,
+        }),
+      });
+
+      if (!response.ok) {
+        setLoader(false);
+        return alert("Something Went Wrong Couldn't Create Room");
+      }
+      const data = response.json();
+      console.log("This is Data");
+      data.then((data) => router.push(`/room/${data.id}`));
+    } catch (error) {
+      setLoader(false);
+      console.log(error);
+    }
+  }
+
   return (
     <BackgroundGradient>
       <div className="group relative bg-[#181818] hover:bg-[#282828] rounded-xl p-6 transition-all duration-300 hover:shadow-xl border border-zinc-800 max-w-lg ">
@@ -39,6 +77,7 @@ const PublicRoomCard = () => {
                 type="text"
                 placeholder="Enter room name"
                 className="w-full bg-dark border border-zinc-800 rounded-lg px-4 py-2 text-black placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
+                onChange={(e) => setRoomName(e.target.value)}
               />
             </div>
 
@@ -47,23 +86,32 @@ const PublicRoomCard = () => {
                 type="text"
                 placeholder="Room description (optional)"
                 className="w-full bg-dark border border-zinc-800 rounded-lg px-4 py-2 text-black placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
+                onChange={(e) => setRoomDescription(e.target.value)}
               />
             </div>
 
             <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
-              <span className=" font-bold font-sans">Create Public Room</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+              {loader ? (
+                <FunkyLoader size="small" />
+              ) : (
+                <>
+                  <span className=" font-bold font-sans">
+                    Create Public Room
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </>
+              )}
             </button>
           </div>
 

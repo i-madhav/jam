@@ -2,11 +2,11 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 const isPublicRoute = createRouteMatcher(["/sign-in", "/sign-up", "/"]);
-const isPublicApiRoute = createRouteMatcher(["/api/create-room", "/api/browse-room"]);
+const isPublicApiRoute = createRouteMatcher(["/api/create-room", "/api/browse-room" , "/api/room"]);
 
 export default clerkMiddleware(async (auth, request) => {
   try {
-    const { userId } = await auth();
+    const { userId} = await auth();
     if (!request?.url) {
       console.error("Request URL is undefined");
       return NextResponse.next();

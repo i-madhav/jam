@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -35,6 +35,18 @@ const RoomPage = () => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [newUser, setNewUser] = useState("");
   const [participants, setParticipants] = useState(["Alice", "Bob", "Charlie"]);
+
+  useEffect(() => {
+
+  },[]);
+
+  async function handleRoomAndUserVerification(){
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
 
   const handleSubmitLink = (e: React.FormEvent) => {
     e.preventDefault();

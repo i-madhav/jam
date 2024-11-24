@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Room {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @default(cuid())
   title       String
   owner       String
   description String
@@ -21,6 +21,6 @@ model Music {
   id     Int    @id @default(autoincrement())
   url    String
   order  Int    @default(0)
-  roomId Int
+  roomId String
   room   Room   @relation(fields: [roomId], references: [id])
 }
