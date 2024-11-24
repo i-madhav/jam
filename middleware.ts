@@ -7,7 +7,6 @@ const isPublicApiRoute = createRouteMatcher(["/api/create-room", "/api/browse-ro
 export default clerkMiddleware(async (auth, request) => {
   try {
     const { userId } = await auth();
-    
     if (!request?.url) {
       console.error("Request URL is undefined");
       return NextResponse.next();

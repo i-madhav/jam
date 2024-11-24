@@ -6,6 +6,10 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
+/* .cl-internal-1dauvpw{
+  display: none;
+} */
+
 @layer base {
   :root {
     --background: 0 0% 100%;
