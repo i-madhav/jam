@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
@@ -9,8 +9,6 @@ const JoinPrivateRoomCard = () => {
   const [loader, setLoader] = useState(false);
   const { user } = useUser();
   const route = useRouter();
-
-  console.log(roomCode);
 
   async function handleGoToRoom() {
     try {

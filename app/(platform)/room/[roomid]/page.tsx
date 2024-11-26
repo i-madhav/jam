@@ -21,6 +21,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
 const RoomPage = () => {
   const { roomid } = useParams();
@@ -35,16 +37,38 @@ const RoomPage = () => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [newUser, setNewUser] = useState("");
   const [participants, setParticipants] = useState(["Alice", "Bob", "Charlie"]);
+  const { user } = useUser();
+  const route = useRouter();
 
   useEffect(() => {
+    handleVerifyUser();
+  }, []);
 
-  },[]);
-
-  async function handleRoomAndUserVerification(){
+  async function handleVerifyUser() {
     try {
-      
+      const response = await fetch("/api/verify-user-entering-room", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          roomId: roomid,
+          userId: user?.id,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.redirect) {
+          route.push(data.redirect);
+        } else {
+          console.error("No redirection path provided");
+        }
+      } else {
+        console.error("Error verifying user");
+      }
     } catch (error) {
-      
+      console.error("Error during user verification:", error);
     }
   }
 
@@ -170,7 +194,9 @@ const RoomPage = () => {
             </div>
             <div className="flex items-center justify-center text-2xl mb-4">
               <Users className="mr-2 h-6 w-6 fill-white stroke-white" />
-              <span className="text-white font-bold">{participants.length}</span>
+              <span className="text-white font-bold">
+                {participants.length}
+              </span>
             </div>
             <ScrollArea className="h-[150px]">
               <ul className="space-y-2 text-white">
