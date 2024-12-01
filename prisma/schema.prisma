@@ -9,13 +9,15 @@ datasource db {
 
 model User {
   clerkUserId String @unique
-  email String @unique
+  email       String @unique
+  Room        Room[]
 }
 
 model Room {
   id          String   @id @default(cuid())
   title       String
-  owner       String
+  ownerId     String
+  owner       User     @relation(fields: [ownerId], references: [clerkUserId])
   description String
   isPrivate   Boolean  @default(false)
   shareWith   String[]
